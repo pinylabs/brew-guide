@@ -1,0 +1,15 @@
+{
+  "name": "Brew Guide",
+  "line": "Better coffee at home, one method at a time: a dark-led EmDash docs site with a guide per method.",
+  "kind": "emdash",
+  "category": "docs",
+  "stacks": [
+    "astro",
+    "emdash"
+  ],
+  "status": "preview",
+  "demo": null,
+  "preview": null,
+  "licence": "MIT",
+  "basedOn": "EmDash starter-cloudflare template, 1.4.0 (MIT, Cloudflare)"
+}
