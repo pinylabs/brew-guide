@@ -2,13 +2,13 @@
 	"$schema": "https://emdashcms.com/seed.schema.json",
 	"version": "1",
 	"meta": {
-		"name": "Starter",
-		"description": "A minimal EmDash starter with posts and pages",
-		"author": "EmDash"
+		"name": "Brew Guide",
+		"description": "Better coffee at home: one guide per brewing method, with the recipe, timed steps and a table of fixes.",
+		"author": "Piny"
 	},
 	"settings": {
-		"title": "My Site",
-		"tagline": "Built with EmDash"
+		"title": "Brew Guide",
+		"tagline": "Better coffee at home"
 	},
 	"collections": [
 		{
@@ -144,12 +144,12 @@
 			],
 			"terms": [
 				{
-					"slug": "general",
-					"label": "General"
+					"slug": "basics",
+					"label": "Basics"
 				},
 				{
-					"slug": "updates",
-					"label": "Updates"
+					"slug": "test-notes",
+					"label": "Test notes"
 				}
 			]
 		},
@@ -159,16 +159,33 @@
 			"labelSingular": "Tag",
 			"hierarchical": false,
 			"collections": [
-				"posts"
+				"posts",
+				"guides"
 			],
 			"terms": [
 				{
-					"slug": "starter",
-					"label": "Starter"
+					"slug": "pour-over",
+					"label": "Pour-over"
 				},
 				{
-					"slug": "example",
-					"label": "Example"
+					"slug": "aeropress",
+					"label": "AeroPress"
+				},
+				{
+					"slug": "french-press",
+					"label": "French press"
+				},
+				{
+					"slug": "moka-pot",
+					"label": "Moka pot"
+				},
+				{
+					"slug": "espresso",
+					"label": "Espresso"
+				},
+				{
+					"slug": "cold-brew",
+					"label": "Cold brew"
 				}
 			]
 		}
@@ -185,7 +202,22 @@
 				},
 				{
 					"type": "custom",
-					"label": "Posts",
+					"label": "Methods",
+					"url": "/guides"
+				},
+				{
+					"type": "custom",
+					"label": "Beans",
+					"url": "/beans"
+				},
+				{
+					"type": "custom",
+					"label": "How we test",
+					"url": "/how-we-test"
+				},
+				{
+					"type": "custom",
+					"label": "Notes",
 					"url": "/posts"
 				},
 				{
@@ -234,74 +266,4202 @@
 					"content": [
 						{
 							"_type": "block",
+							"_key": "kei",
 							"style": "normal",
+							"markDefs": [],
 							"children": [
 								{
 									"_type": "span",
-									"text": "This is the about page. Edit it in the admin panel or replace this template with your own design.",
-									"_key": "k1"
+									"_key": "kej",
+									"text": "Brew Guide is better coffee at home. It has one page for each way of brewing: the recipe, the steps with a timer, and what to change when it tastes wrong."
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kek",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kel",
+									"text": "There are six guides: pour-over, AeroPress, French press, moka pot, espresso and cold brew. Every recipe is brewed and tasted by people before it is published, and its test notes say what we changed."
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kem",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "ken",
+									"text": "Made by the Pinies in Piny, on EmDash. The photos are from Unsplash."
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"id": "how-we-test",
+				"slug": "how-we-test",
+				"status": "published",
+				"data": {
+					"title": "How we test a recipe",
+					"content": [
+						{
+							"_type": "block",
+							"_key": "keo",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kep",
+									"text": "Every recipe is brewed at home by a person, three times, before it is published. We write down the beans, the grinder and what we changed, and the page says when it was last brewed."
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "keq",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "ker",
+									"text": "The test sheet"
+								}
+							]
+						},
+						{
+							"_type": "table",
+							"_key": "kes",
+							"hasHeaderRow": true,
+							"rows": [
+								{
+									"_type": "tableRow",
+									"_key": "ket",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "keu",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kev",
+													"text": "Line"
+												}
+											],
+											"isHeader": true
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kew",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kex",
+													"text": "What we write down"
+												}
+											],
+											"isHeader": true
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "key",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kez",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kf0",
+													"text": "recipe"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kf1",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kf2",
+													"text": "the method and its weights, for example pour-over, 15 g : 250 g"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "kf3",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kf4",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kf5",
+													"text": "beans"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kf6",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kf7",
+													"text": "the roaster and the roast date"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "kf8",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kf9",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kfa",
+													"text": "brewed"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kfb",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kfc",
+													"text": "how many times, and by whom"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "kfd",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kfe",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kff",
+													"text": "changed"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kfg",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kfh",
+													"text": "what we changed between brews"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "kfi",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kfj",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kfk",
+													"text": "result"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kfl",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kfm",
+													"text": "published, or back for another try"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kfn",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kfo",
+									"text": "A recipe that still tastes wrong after three brews is not published. We change one thing at a time, usually the grind, and start again."
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"id": "beans",
+				"slug": "beans",
+				"status": "published",
+				"data": {
+					"title": "Beans, grind and water",
+					"content": [
+						{
+							"_type": "block",
+							"_key": "kfp",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kfq",
+									"text": "Start here. Every guide on this site depends on three things you control before you brew: the beans, the grind and the water."
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kfr",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kfs",
+									"text": "Beans"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kft",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kfu",
+									"text": "Buy whole beans with a roast date on the bag, and use them between one and four weeks after it. Keep them sealed, away from light and heat, and grind just before you brew."
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kfv",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kfw",
+									"text": "Grind"
+								}
+							]
+						},
+						{
+							"_type": "table",
+							"_key": "kfx",
+							"hasHeaderRow": true,
+							"rows": [
+								{
+									"_type": "tableRow",
+									"_key": "kfy",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kfz",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kg0",
+													"text": "Grind"
+												}
+											],
+											"isHeader": true
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kg1",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kg2",
+													"text": "Feels like"
+												}
+											],
+											"isHeader": true
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kg3",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kg4",
+													"text": "Methods"
+												}
+											],
+											"isHeader": true
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "kg5",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kg6",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kg7",
+													"text": "very fine"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kg8",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kg9",
+													"text": "flour with a little grit"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kga",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kgb",
+													"text": "espresso"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "kgc",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kgd",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kge",
+													"text": "fine"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kgf",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kgg",
+													"text": "table salt"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kgh",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kgi",
+													"text": "AeroPress, moka pot"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "kgj",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kgk",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kgl",
+													"text": "medium"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kgm",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kgn",
+													"text": "coarse sand"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kgo",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kgp",
+													"text": "pour-over"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "kgq",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kgr",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kgs",
+													"text": "coarse"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kgt",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kgu",
+													"text": "sea salt"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kgv",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kgw",
+													"text": "French press, cold brew"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kgx",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kgy",
+									"text": "Water"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kgz",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kh0",
+									"text": "Use water that tastes good on its own; filtered tap water is fine. For hot methods, let a boiled kettle rest for half a minute to reach 90 to 95 °C. Weigh it: 1 ml of water weighs 1 g."
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kh1",
+							"style": "blockquote",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kh2",
+									"text": "Weigh your coffee. It changes more than any machine."
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"guides": [
+			{
+				"id": "guide-pour-over",
+				"slug": "pour-over",
+				"status": "published",
+				"data": {
+					"title": "Pour-over",
+					"featured_image": {
+						"$media": {
+							"url": "https://images.unsplash.com/photo-1759259639356-7c6e74eed1ec?w=1600&q=80&fm=jpg&fit=max",
+							"alt": "Hot water poured over coffee in a pour-over cone",
+							"filename": "pour-over.jpg"
+						}
+					},
+					"ratio": "1:16",
+					"grind": "medium",
+					"time": "3:30",
+					"excerpt": "A clean, bright cup from a cone and a kettle: 15 g of coffee, 250 g of water at 94 °C, done in 3:30.",
+					"content": [
+						{
+							"_type": "block",
+							"_key": "k0",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k1",
+									"text": "Pour-over gives the clearest cup of the six. You pour the water yourself, so the speed of your pour and the size of your grind decide how the coffee tastes. Weigh both, and time the pours."
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k2",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k3",
+									"text": "The recipe"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k4",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k5",
+									"text": "Coffee: "
+								},
+								{
+									"_type": "span",
+									"_key": "k6",
+									"text": "15 g",
+									"marks": [
+										"strong"
+									]
 								}
 							],
-							"_key": "k0"
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k7",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k8",
+									"text": "Water: "
+								},
+								{
+									"_type": "span",
+									"_key": "k9",
+									"text": "250 g",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "ka",
+									"text": " at 94 °C"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "kb",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kc",
+									"text": "Ratio: "
+								},
+								{
+									"_type": "span",
+									"_key": "kd",
+									"text": "1:16",
+									"marks": [
+										"strong"
+									]
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "ke",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kf",
+									"text": "Grind: "
+								},
+								{
+									"_type": "span",
+									"_key": "kg",
+									"text": "medium",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "kh",
+									"text": ", like coarse sand"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "ki",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kj",
+									"text": "Time: "
+								},
+								{
+									"_type": "span",
+									"_key": "kk",
+									"text": "3:30",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "kl",
+									"text": " from the first pour to the last drip"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "km",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kn",
+									"text": "Steps"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "ko",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kp",
+									"text": "Before you start: put a paper filter in the cone, rinse it with hot water and pour that water away. Add the coffee and shake it flat."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "kq",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kr",
+									"text": "0:00",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "ks",
+									"text": " Bloom: pour 40 g of water, enough to wet all the coffee. It puffs up as the gas leaves."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "kt",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "ku",
+									"text": "0:45",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "kv",
+									"text": " Pour slowly in small circles up to 150 g."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "kw",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kx",
+									"text": "1:15",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "ky",
+									"text": " Pour again up to 250 g, keeping the water off the paper."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "kz",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k10",
+									"text": "1:45",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k11",
+									"text": " Give the cone a gentle swirl so the bed settles flat."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k12",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k13",
+									"text": "3:30",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k14",
+									"text": " The last drips fall. Lift the cone away and serve."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k15",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k16",
+									"text": "When it tastes wrong"
+								}
+							]
+						},
+						{
+							"_type": "table",
+							"_key": "k17",
+							"hasHeaderRow": true,
+							"rows": [
+								{
+									"_type": "tableRow",
+									"_key": "k18",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k19",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k1a",
+													"text": "It tastes"
+												}
+											],
+											"isHeader": true
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k1b",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k1c",
+													"text": "Why"
+												}
+											],
+											"isHeader": true
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k1d",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k1e",
+													"text": "Change this"
+												}
+											],
+											"isHeader": true
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "k1f",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k1g",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k1h",
+													"text": "Sour, thin"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k1i",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k1j",
+													"text": "The water ran through too fast"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k1k",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k1l",
+													"text": "Grind one step finer"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "k1m",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k1n",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k1o",
+													"text": "Bitter, dry"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k1p",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k1q",
+													"text": "The water ran through too slowly"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k1r",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k1s",
+													"text": "Grind one step coarser"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "k1t",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k1u",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k1v",
+													"text": "Weak"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k1w",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k1x",
+													"text": "Too little coffee for the water"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k1y",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k1z",
+													"text": "Weigh again: 15 g to 250 g"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "k20",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k21",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k22",
+													"text": "Done well before 3:00"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k23",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k24",
+													"text": "The grind is too coarse"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k25",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k26",
+													"text": "Grind finer, then pour more slowly"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k27",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k28",
+									"text": "How this recipe was tested"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k29",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k2a",
+									"text": "Brewed three times at home by a person. On the first try it ran through in 2:50 and tasted sour, so we ground one step finer and it finished at 3:30."
+								}
+							]
 						}
+					]
+				},
+				"taxonomies": {
+					"tag": [
+						"pour-over"
+					]
+				}
+			},
+			{
+				"id": "guide-aeropress",
+				"slug": "aeropress",
+				"status": "published",
+				"data": {
+					"title": "AeroPress",
+					"featured_image": {
+						"$media": {
+							"url": "https://images.unsplash.com/photo-1783351583601-f9a0fd43e658?w=1600&q=80&fm=jpg&fit=max",
+							"alt": "Hot water poured into an AeroPress",
+							"filename": "aeropress.jpg"
+						}
+					},
+					"ratio": "1:15",
+					"grind": "fine",
+					"time": "2:00",
+					"excerpt": "A full, sweet cup in two minutes: 15 g of fine coffee, 225 g of water, a stir and a slow press.",
+					"content": [
+						{
+							"_type": "block",
+							"_key": "k2b",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k2c",
+									"text": "The AeroPress steeps the coffee like a French press and then pushes it through paper, so the cup is full but clean. It is quick, forgiving and easy to wash."
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k2d",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k2e",
+									"text": "The recipe"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k2f",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k2g",
+									"text": "Coffee: "
+								},
+								{
+									"_type": "span",
+									"_key": "k2h",
+									"text": "15 g",
+									"marks": [
+										"strong"
+									]
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k2i",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k2j",
+									"text": "Water: "
+								},
+								{
+									"_type": "span",
+									"_key": "k2k",
+									"text": "225 g",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k2l",
+									"text": " at 90 °C"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k2m",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k2n",
+									"text": "Ratio: "
+								},
+								{
+									"_type": "span",
+									"_key": "k2o",
+									"text": "1:15",
+									"marks": [
+										"strong"
+									]
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k2p",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k2q",
+									"text": "Grind: "
+								},
+								{
+									"_type": "span",
+									"_key": "k2r",
+									"text": "fine",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k2s",
+									"text": ", like table salt"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k2t",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k2u",
+									"text": "Time: "
+								},
+								{
+									"_type": "span",
+									"_key": "k2v",
+									"text": "2:00",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k2w",
+									"text": " including the press"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k2x",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k2y",
+									"text": "Steps"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k2z",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k30",
+									"text": "Before you start: put a paper filter in the cap, rinse it and screw the cap on. Stand the AeroPress on a sturdy mug and add the coffee."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k31",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k32",
+									"text": "0:00",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k33",
+									"text": " Pour all 225 g of water."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k34",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k35",
+									"text": "0:10",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k36",
+									"text": " Stir three times so all the coffee is wet."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k37",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k38",
+									"text": "0:20",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k39",
+									"text": " Set the plunger in the top, just enough to hold the coffee in."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k3a",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k3b",
+									"text": "1:30",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k3c",
+									"text": " Lift the AeroPress and mug together, give them a swirl, and start pressing slowly."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k3d",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k3e",
+									"text": "2:00",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k3f",
+									"text": " Stop when you hear a hiss. Taste, and add hot water if you like it longer."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k3g",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k3h",
+									"text": "When it tastes wrong"
+								}
+							]
+						},
+						{
+							"_type": "table",
+							"_key": "k3i",
+							"hasHeaderRow": true,
+							"rows": [
+								{
+									"_type": "tableRow",
+									"_key": "k3j",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k3k",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k3l",
+													"text": "It tastes"
+												}
+											],
+											"isHeader": true
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k3m",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k3n",
+													"text": "Why"
+												}
+											],
+											"isHeader": true
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k3o",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k3p",
+													"text": "Change this"
+												}
+											],
+											"isHeader": true
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "k3q",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k3r",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k3s",
+													"text": "Sour"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k3t",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k3u",
+													"text": "Too short a steep or too coarse a grind"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k3v",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k3w",
+													"text": "Grind finer, or start pressing at 1:45"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "k3x",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k3y",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k3z",
+													"text": "Bitter"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k40",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k41",
+													"text": "Pressed too hard, or too fine a grind"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k42",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k43",
+													"text": "Press gently, grind one step coarser"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "k44",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k45",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k46",
+													"text": "Hard to press"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k47",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k48",
+													"text": "The grind is too fine"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k49",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k4a",
+													"text": "Grind one step coarser"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k4b",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k4c",
+									"text": "How this recipe was tested"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k4d",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k4e",
+									"text": "Brewed three times at home by a person. We kept the recipe as written; the third cup was the sweetest after a gentler press."
+								}
+							]
+						}
+					]
+				},
+				"taxonomies": {
+					"tag": [
+						"aeropress"
+					]
+				}
+			},
+			{
+				"id": "guide-french-press",
+				"slug": "french-press",
+				"status": "published",
+				"data": {
+					"title": "French press",
+					"featured_image": {
+						"$media": {
+							"url": "https://images.unsplash.com/photo-1708127368781-cd5f069a90a5?w=1600&q=80&fm=jpg&fit=max",
+							"alt": "A French press on a wooden table",
+							"filename": "french-press.jpg"
+						}
+					},
+					"ratio": "1:15",
+					"grind": "coarse",
+					"time": "4:00",
+					"excerpt": "A heavy, rounded cup that needs no paper: 30 g of coarse coffee, 450 g of water, four minutes and a gentle press.",
+					"content": [
+						{
+							"_type": "block",
+							"_key": "k4f",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k4g",
+									"text": "The French press steeps the coffee in all the water at once and holds back the grounds with a metal mesh. The cup is heavy and rounded, with a little sediment at the bottom."
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k4h",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k4i",
+									"text": "The recipe"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k4j",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k4k",
+									"text": "Coffee: "
+								},
+								{
+									"_type": "span",
+									"_key": "k4l",
+									"text": "30 g",
+									"marks": [
+										"strong"
+									]
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k4m",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k4n",
+									"text": "Water: "
+								},
+								{
+									"_type": "span",
+									"_key": "k4o",
+									"text": "450 g",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k4p",
+									"text": " at 95 °C"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k4q",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k4r",
+									"text": "Ratio: "
+								},
+								{
+									"_type": "span",
+									"_key": "k4s",
+									"text": "1:15",
+									"marks": [
+										"strong"
+									]
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k4t",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k4u",
+									"text": "Grind: "
+								},
+								{
+									"_type": "span",
+									"_key": "k4v",
+									"text": "coarse",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k4w",
+									"text": ", like sea salt"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k4x",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k4y",
+									"text": "Time: "
+								},
+								{
+									"_type": "span",
+									"_key": "k4z",
+									"text": "4:00",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k50",
+									"text": " of steeping"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k51",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k52",
+									"text": "Steps"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k53",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k54",
+									"text": "Before you start: warm the press with hot water and pour it away. Add the coffee."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k55",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k56",
+									"text": "0:00",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k57",
+									"text": " Pour all 450 g of water and put the lid on, with the plunger up."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k58",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k59",
+									"text": "4:00",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k5a",
+									"text": " Stir the crust on top, and spoon off the foam."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k5b",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k5c",
+									"text": "4:30",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k5d",
+									"text": " Press the plunger down gently, only to just below the surface, and pour it all out so it stops brewing."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k5e",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k5f",
+									"text": "When it tastes wrong"
+								}
+							]
+						},
+						{
+							"_type": "table",
+							"_key": "k5g",
+							"hasHeaderRow": true,
+							"rows": [
+								{
+									"_type": "tableRow",
+									"_key": "k5h",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k5i",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k5j",
+													"text": "It tastes"
+												}
+											],
+											"isHeader": true
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k5k",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k5l",
+													"text": "Why"
+												}
+											],
+											"isHeader": true
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k5m",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k5n",
+													"text": "Change this"
+												}
+											],
+											"isHeader": true
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "k5o",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k5p",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k5q",
+													"text": "Muddy, gritty"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k5r",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k5s",
+													"text": "The grind is too fine"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k5t",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k5u",
+													"text": "Grind coarser, and do not press to the bottom"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "k5v",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k5w",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k5x",
+													"text": "Watery"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k5y",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k5z",
+													"text": "Too short a steep"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k60",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k61",
+													"text": "Steep a full 4:00, or use 32 g of coffee"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "k62",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k63",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k64",
+													"text": "Bitter"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k65",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k66",
+													"text": "Left in the press too long"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k67",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k68",
+													"text": "Pour every cup out as soon as you press"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k69",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k6a",
+									"text": "How this recipe was tested"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k6b",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k6c",
+									"text": "Brewed three times at home by a person. Skimming the foam before pressing made the cup cleaner, so it is now a step."
+								}
+							]
+						}
+					]
+				},
+				"taxonomies": {
+					"tag": [
+						"french-press"
+					]
+				}
+			},
+			{
+				"id": "guide-moka-pot",
+				"slug": "moka-pot",
+				"status": "published",
+				"data": {
+					"title": "Moka pot",
+					"featured_image": {
+						"$media": {
+							"url": "https://images.unsplash.com/photo-1781574120734-c3fceee09415?w=1600&q=80&fm=jpg&fit=max",
+							"alt": "A moka pot brewing on a stove",
+							"filename": "moka-pot.jpg"
+						}
+					},
+					"ratio": "water to valve",
+					"grind": "fine",
+					"time": "5:00",
+					"excerpt": "Strong stovetop coffee: water up to the valve, fine coffee left loose, low heat, and off the stove at 5:00.",
+					"content": [
+						{
+							"_type": "block",
+							"_key": "k6d",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k6e",
+									"text": "The moka pot pushes boiling water up through the coffee with steam. It is not espresso, but it is strong and rich. Low heat, and taking it off at the right moment, make the difference."
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k6f",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k6g",
+									"text": "The recipe"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k6h",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k6i",
+									"text": "Water: "
+								},
+								{
+									"_type": "span",
+									"_key": "k6j",
+									"text": "hot water up to the valve",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k6k",
+									"text": " in the bottom chamber"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k6l",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k6m",
+									"text": "Coffee: "
+								},
+								{
+									"_type": "span",
+									"_key": "k6n",
+									"text": "fill the basket",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k6o",
+									"text": ", level, not pressed down"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k6p",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k6q",
+									"text": "Grind: "
+								},
+								{
+									"_type": "span",
+									"_key": "k6r",
+									"text": "fine",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k6s",
+									"text": ", a little coarser than espresso"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k6t",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k6u",
+									"text": "Time: "
+								},
+								{
+									"_type": "span",
+									"_key": "k6v",
+									"text": "5:00",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k6w",
+									"text": " on low to medium heat"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k6x",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k6y",
+									"text": "Steps"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k6z",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k70",
+									"text": "Before you start: fill the bottom with just-boiled water up to the valve. Fill the basket with coffee, level it with a finger, and screw the pot together with a towel."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k71",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k72",
+									"text": "0:00",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k73",
+									"text": " Put the pot on low to medium heat with the lid open."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k74",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k75",
+									"text": "2:30",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k76",
+									"text": " Coffee starts to rise, dark and slow."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k77",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k78",
+									"text": "4:30",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k79",
+									"text": " The stream turns pale and starts to sputter."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k7a",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k7b",
+									"text": "5:00",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k7c",
+									"text": " Take it off the heat and cool the bottom under the cold tap to stop it."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k7d",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k7e",
+									"text": "When it tastes wrong"
+								}
+							]
+						},
+						{
+							"_type": "table",
+							"_key": "k7f",
+							"hasHeaderRow": true,
+							"rows": [
+								{
+									"_type": "tableRow",
+									"_key": "k7g",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k7h",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k7i",
+													"text": "It tastes"
+												}
+											],
+											"isHeader": true
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k7j",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k7k",
+													"text": "Why"
+												}
+											],
+											"isHeader": true
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k7l",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k7m",
+													"text": "Change this"
+												}
+											],
+											"isHeader": true
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "k7n",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k7o",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k7p",
+													"text": "Burnt, harsh"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k7q",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k7r",
+													"text": "The heat was too high, or it boiled dry"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k7s",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k7t",
+													"text": "Lower the heat and stop at the first sputter"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "k7u",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k7v",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k7w",
+													"text": "Sour, weak"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k7x",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k7y",
+													"text": "Cold water at the start, or too coarse a grind"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k7z",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k80",
+													"text": "Start with hot water, grind finer"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "k81",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k82",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k83",
+													"text": "Metallic"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k84",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k85",
+													"text": "A new or dirty pot"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k86",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k87",
+													"text": "Brew and throw away two pots, rinse with water only"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k88",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k89",
+									"text": "How this recipe was tested"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k8a",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k8b",
+									"text": "Brewed three times at home by a person. Starting with hot water instead of cold took the burnt edge off every cup."
+								}
+							]
+						}
+					]
+				},
+				"taxonomies": {
+					"tag": [
+						"moka-pot"
+					]
+				}
+			},
+			{
+				"id": "guide-espresso",
+				"slug": "espresso",
+				"status": "published",
+				"data": {
+					"title": "Espresso",
+					"featured_image": {
+						"$media": {
+							"url": "https://images.unsplash.com/photo-1573761877924-7babc31ca392?w=1600&q=80&fm=jpg&fit=max",
+							"alt": "Tamping ground coffee into a portafilter",
+							"filename": "espresso.jpg"
+						}
+					},
+					"ratio": "1:2 (18 g in, 36 g out)",
+					"grind": "very fine",
+					"time": "0:28",
+					"excerpt": "A balanced shot: 18 g of coffee in, 36 g of espresso out, in about 28 seconds.",
+					"content": [
+						{
+							"_type": "block",
+							"_key": "k8c",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k8d",
+									"text": "Espresso is the least forgiving method here. Weigh the coffee in and the espresso out, and time the shot. When it tastes wrong, change one thing at a time: almost always the grind."
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k8e",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k8f",
+									"text": "The recipe"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k8g",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k8h",
+									"text": "In: "
+								},
+								{
+									"_type": "span",
+									"_key": "k8i",
+									"text": "18 g",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k8j",
+									"text": " of coffee"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k8k",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k8l",
+									"text": "Out: "
+								},
+								{
+									"_type": "span",
+									"_key": "k8m",
+									"text": "36 g",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k8n",
+									"text": " of espresso"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k8o",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k8p",
+									"text": "Ratio: "
+								},
+								{
+									"_type": "span",
+									"_key": "k8q",
+									"text": "1:2",
+									"marks": [
+										"strong"
+									]
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k8r",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k8s",
+									"text": "Grind: "
+								},
+								{
+									"_type": "span",
+									"_key": "k8t",
+									"text": "very fine",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k8u",
+									"text": ", like flour with a little grit"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k8v",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k8w",
+									"text": "Time: "
+								},
+								{
+									"_type": "span",
+									"_key": "k8x",
+									"text": "0:28",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k8y",
+									"text": " from the pump starting"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k8z",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k90",
+									"text": "Steps"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "k91",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k92",
+									"text": "Before you start: let the machine heat fully, about 93 °C at the group. Grind 18 g into a dry basket, level it, and tamp flat and firm."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k93",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k94",
+									"text": "Lock the handle in, put the cup on the scale and zero it."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k95",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k96",
+									"text": "0:00",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k97",
+									"text": " Start the pump and the timer together."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k98",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k99",
+									"text": "0:06",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k9a",
+									"text": " The first drops appear, dark and thick."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k9b",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k9c",
+									"text": "0:28",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "k9d",
+									"text": " Stop at 36 g in the cup."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "k9e",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "k9f",
+									"text": "When it tastes wrong"
+								}
+							]
+						},
+						{
+							"_type": "table",
+							"_key": "k9g",
+							"hasHeaderRow": true,
+							"rows": [
+								{
+									"_type": "tableRow",
+									"_key": "k9h",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k9i",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k9j",
+													"text": "It tastes"
+												}
+											],
+											"isHeader": true
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k9k",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k9l",
+													"text": "Why"
+												}
+											],
+											"isHeader": true
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k9m",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k9n",
+													"text": "Change this"
+												}
+											],
+											"isHeader": true
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "k9o",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k9p",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k9q",
+													"text": "Sour, thin"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k9r",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k9s",
+													"text": "The shot ran too fast, under 24 s"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k9t",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k9u",
+													"text": "Grind one step finer"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "k9v",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "k9w",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k9x",
+													"text": "Bitter, harsh"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "k9y",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "k9z",
+													"text": "The shot ran too slow, over 32 s"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "ka0",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "ka1",
+													"text": "Grind one step coarser"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "ka2",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "ka3",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "ka4",
+													"text": "Sour and bitter at once"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "ka5",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "ka6",
+													"text": "The water found a channel through the coffee"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "ka7",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "ka8",
+													"text": "Break up clumps and tamp level"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "ka9",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kaa",
+									"text": "How this recipe was tested"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kab",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kac",
+									"text": "Brewed three times at home by a person. The first shot ran in 21 seconds; one step finer brought it to 28."
+								}
+							]
+						}
+					]
+				},
+				"taxonomies": {
+					"tag": [
+						"espresso"
+					]
+				}
+			},
+			{
+				"id": "guide-cold-brew",
+				"slug": "cold-brew",
+				"status": "published",
+				"data": {
+					"title": "Cold brew",
+					"featured_image": {
+						"$media": {
+							"url": "https://images.unsplash.com/photo-1759259639356-6eee63241869?w=1600&q=80&fm=jpg&fit=max",
+							"alt": "Cold brew over ice in a mason jar",
+							"filename": "cold-brew.jpg"
+						}
+					},
+					"ratio": "1:8",
+					"grind": "coarse",
+					"time": "16 h",
+					"excerpt": "A smooth concentrate for iced coffee: 100 g of coarse coffee in 800 g of cold water for 16 hours.",
+					"content": [
+						{
+							"_type": "block",
+							"_key": "kad",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kae",
+									"text": "Cold brew trades heat for time. The coffee steeps in cold water overnight and gives a smooth, low-acid concentrate that you dilute over ice. It keeps in the fridge for a week."
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kaf",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kag",
+									"text": "The recipe"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kah",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kai",
+									"text": "Coffee: "
+								},
+								{
+									"_type": "span",
+									"_key": "kaj",
+									"text": "100 g",
+									"marks": [
+										"strong"
+									]
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "kak",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kal",
+									"text": "Water: "
+								},
+								{
+									"_type": "span",
+									"_key": "kam",
+									"text": "800 g",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "kan",
+									"text": " cold"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "kao",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kap",
+									"text": "Ratio: "
+								},
+								{
+									"_type": "span",
+									"_key": "kaq",
+									"text": "1:8",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "kar",
+									"text": ", a concentrate"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "kas",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kat",
+									"text": "Grind: "
+								},
+								{
+									"_type": "span",
+									"_key": "kau",
+									"text": "coarse",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "kav",
+									"text": ", like sea salt"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "kaw",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kax",
+									"text": "Time: "
+								},
+								{
+									"_type": "span",
+									"_key": "kay",
+									"text": "16 h",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "kaz",
+									"text": " in the fridge"
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "kb0",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kb1",
+									"text": "Steps"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kb2",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kb3",
+									"text": "0 h",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "kb4",
+									"text": " Put the coffee in a large jar, pour the cold water over it and stir until it is all wet."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "kb5",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kb6",
+									"text": "0 h",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "kb7",
+									"text": " Close the jar and put it in the fridge."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "kb8",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kb9",
+									"text": "16 h",
+									"marks": [
+										"strong"
+									]
+								},
+								{
+									"_type": "span",
+									"_key": "kba",
+									"text": " Strain through a paper filter or a fine cloth."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "kbb",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kbc",
+									"text": "To serve: pour one part concentrate and one part water or milk over ice."
+								}
+							],
+							"listItem": "number",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "kbd",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kbe",
+									"text": "When it tastes wrong"
+								}
+							]
+						},
+						{
+							"_type": "table",
+							"_key": "kbf",
+							"hasHeaderRow": true,
+							"rows": [
+								{
+									"_type": "tableRow",
+									"_key": "kbg",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kbh",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kbi",
+													"text": "It tastes"
+												}
+											],
+											"isHeader": true
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kbj",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kbk",
+													"text": "Why"
+												}
+											],
+											"isHeader": true
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kbl",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kbm",
+													"text": "Change this"
+												}
+											],
+											"isHeader": true
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "kbn",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kbo",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kbp",
+													"text": "Weak"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kbq",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kbr",
+													"text": "Too short a steep, or too much water"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kbs",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kbt",
+													"text": "Steep the full 16 h, or dilute less"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "kbu",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kbv",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kbw",
+													"text": "Bitter, woody"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kbx",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kby",
+													"text": "Steeped too long, or too fine a grind"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kbz",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kc0",
+													"text": "Strain by 18 h, grind coarser"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "kc1",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kc2",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kc3",
+													"text": "Cloudy, gritty"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kc4",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kc5",
+													"text": "Fine particles got through"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kc6",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kc7",
+													"text": "Strain a second time through paper"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kc8",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kc9",
+									"text": "How this recipe was tested"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kca",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kcb",
+									"text": "Brewed three times at home by a person. We tried 12, 16 and 20 hours; 16 was the sweetest."
+								}
+							]
+						}
+					]
+				},
+				"taxonomies": {
+					"tag": [
+						"cold-brew"
 					]
 				}
 			}
 		],
 		"posts": [
 			{
-				"id": "post-1",
-				"slug": "welcome",
+				"id": "post-pour-over-test-notes",
+				"slug": "pour-over-test-notes",
 				"status": "published",
 				"data": {
-					"title": "Welcome",
-					"excerpt": "Your first post. Replace this with your own content.",
+					"title": "Test notes: the pour-over recipe",
+					"featured_image": {
+						"$media": {
+							"url": "https://images.unsplash.com/photo-1759259639356-7c6e74eed1ec?w=1600&q=80&fm=jpg&fit=max",
+							"alt": "Hot water poured over coffee in a pour-over cone",
+							"filename": "pour-over.jpg"
+						}
+					},
+					"excerpt": "Pour-over, 15 g to 250 g, brewed three times by a person. One change: the grind, one step finer.",
 					"content": [
 						{
 							"_type": "block",
+							"_key": "kcc",
 							"style": "normal",
+							"markDefs": [],
 							"children": [
 								{
 									"_type": "span",
-									"text": "This is a starter post. The templates in this project show the basic patterns for querying and rendering EmDash content. Replace them with your own design.",
-									"_key": "k1"
+									"_key": "kcd",
+									"text": "This is the test sheet for the pour-over guide. Every recipe gets one before it is published: what we brewed, with what, how many times, and what we changed."
 								}
-							],
-							"_key": "k0"
+							]
+						},
+						{
+							"_type": "table",
+							"_key": "kce",
+							"hasHeaderRow": true,
+							"rows": [
+								{
+									"_type": "tableRow",
+									"_key": "kcf",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kcg",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kch",
+													"text": "Line"
+												}
+											],
+											"isHeader": true
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kci",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kcj",
+													"text": "Notes"
+												}
+											],
+											"isHeader": true
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "kck",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kcl",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kcm",
+													"text": "recipe"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kcn",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kco",
+													"text": "pour-over, 15 g : 250 g"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "kcp",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kcq",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kcr",
+													"text": "beans"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kcs",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kct",
+													"text": "the roaster and roast date go here"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "kcu",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kcv",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kcw",
+													"text": "brewed"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kcx",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kcy",
+													"text": "3 times, by a person"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "kcz",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kd0",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kd1",
+													"text": "changed"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kd2",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kd3",
+													"text": "grind one step finer"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "kd4",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kd5",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kd6",
+													"text": "result"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "kd7",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kd8",
+													"text": "published"
+												}
+											]
+										}
+									]
+								}
+							]
 						},
 						{
 							"_type": "block",
+							"_key": "kd9",
 							"style": "h2",
+							"markDefs": [],
 							"children": [
 								{
 									"_type": "span",
-									"text": "What to do next",
-									"_key": "k3"
+									"_key": "kda",
+									"text": "What happened"
 								}
-							],
-							"_key": "k2"
+							]
 						},
 						{
 							"_type": "block",
+							"_key": "kdb",
 							"style": "normal",
+							"markDefs": [],
 							"children": [
 								{
 									"_type": "span",
-									"text": "Open the admin panel to add content, or edit the Astro pages in src/pages to change how content is displayed.",
-									"_key": "k5"
+									"_key": "kdc",
+									"text": "The first cup finished at 2:50 and tasted sour and thin. That is water running through too fast, so we ground one step finer. The second and third cups finished at 3:30 and tasted sweet and clear, and the recipe was published as it stands."
 								}
-							],
-							"_key": "k4"
+							]
 						}
 					]
 				},
 				"taxonomies": {
 					"category": [
-						"general"
+						"test-notes"
 					],
 					"tag": [
-						"starter",
-						"example"
+						"pour-over"
+					]
+				}
+			},
+			{
+				"id": "post-weigh-your-coffee",
+				"slug": "weigh-your-coffee",
+				"status": "published",
+				"data": {
+					"title": "Weigh your coffee",
+					"featured_image": {
+						"$media": {
+							"url": "https://images.unsplash.com/photo-1587734195342-39d4b9b2ff05?w=1600&q=80&fm=jpg&fit=max",
+							"alt": "Roasted coffee beans in a white bowl",
+							"filename": "beans.jpg"
+						}
+					},
+					"excerpt": "A scale changes more than any machine. Why every recipe here is written in grams.",
+					"content": [
+						{
+							"_type": "block",
+							"_key": "kdd",
+							"style": "blockquote",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kde",
+									"text": "Weigh your coffee. It changes more than any machine."
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kdf",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kdg",
+									"text": "A scoop of dark beans and a scoop of light beans can differ by a quarter. That is the difference between a weak cup and a strong one, before you change anything else. A kitchen scale that reads in single grams costs less than a bag of good coffee."
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kdh",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kdi",
+									"text": "How to use one"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kdj",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kdk",
+									"text": "Put the brewer on the scale and zero it."
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "kdl",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kdm",
+									"text": "Add the coffee until the scale reads the recipe's number."
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "kdn",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kdo",
+									"text": "Zero again, then pour the water by weight: 1 ml of water weighs 1 g."
+								}
+							],
+							"listItem": "bullet",
+							"level": 1
+						},
+						{
+							"_type": "block",
+							"_key": "kdp",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kdq",
+									"text": "Every guide on this site gives its recipe in grams, and every fix assumes you weighed. Start there."
+								}
+							]
+						}
+					]
+				},
+				"taxonomies": {
+					"category": [
+						"basics"
+					],
+					"tag": [
+						"pour-over",
+						"aeropress",
+						"french-press",
+						"moka-pot",
+						"espresso",
+						"cold-brew"
+					]
+				}
+			},
+			{
+				"id": "post-grind-one-step-finer",
+				"slug": "grind-one-step-finer",
+				"status": "published",
+				"data": {
+					"title": "When it tastes sour, grind one step finer",
+					"featured_image": {
+						"$media": {
+							"url": "https://images.unsplash.com/photo-1573761877924-7babc31ca392?w=1600&q=80&fm=jpg&fit=max",
+							"alt": "Tamping ground coffee into a portafilter",
+							"filename": "espresso.jpg"
+						}
+					},
+					"excerpt": "Sour means the water ran through too fast. The grinder is the first thing to change, one step at a time.",
+					"content": [
+						{
+							"_type": "block",
+							"_key": "kdr",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kds",
+									"text": "Most cups that taste wrong are sour or bitter. Sour, thin coffee means the water did not take enough from the grounds, usually because it ran through too fast. Bitter, dry coffee means it took too much."
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kdt",
+							"style": "h2",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kdu",
+									"text": "Change one thing"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "kdv",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "kdw",
+									"text": "The grind is the strongest dial you have. A finer grind slows the water down and takes more from the coffee; a coarser grind does the opposite. Move it one step, brew again with the same weights, and taste."
+								}
+							]
+						},
+						{
+							"_type": "table",
+							"_key": "kdx",
+							"hasHeaderRow": true,
+							"rows": [
+								{
+									"_type": "tableRow",
+									"_key": "kdy",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kdz",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "ke0",
+													"text": "It tastes"
+												}
+											],
+											"isHeader": true
+										},
+										{
+											"_type": "tableCell",
+											"_key": "ke1",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "ke2",
+													"text": "Change this"
+												}
+											],
+											"isHeader": true
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "ke3",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "ke4",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "ke5",
+													"text": "Sour, thin"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "ke6",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "ke7",
+													"text": "Grind one step finer"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "ke8",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "ke9",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kea",
+													"text": "Bitter, dry"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "keb",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kec",
+													"text": "Grind one step coarser"
+												}
+											]
+										}
+									]
+								},
+								{
+									"_type": "tableRow",
+									"_key": "ked",
+									"cells": [
+										{
+											"_type": "tableCell",
+											"_key": "kee",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "kef",
+													"text": "Both at once"
+												}
+											]
+										},
+										{
+											"_type": "tableCell",
+											"_key": "keg",
+											"content": [
+												{
+													"_type": "span",
+													"_key": "keh",
+													"text": "Check your weights and how evenly the water reaches the coffee"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				"taxonomies": {
+					"category": [
+						"basics"
+					],
+					"tag": [
+						"pour-over",
+						"aeropress",
+						"espresso"
 					]
 				}
 			}
