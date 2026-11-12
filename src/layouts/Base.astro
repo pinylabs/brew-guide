@@ -4,6 +4,8 @@ import { EmDashHead, EmDashBodyStart, EmDashBodyEnd } from "emdash/ui";
 import { createPublicPageContext } from "emdash/page";
 import LiveSearch from "emdash/ui/search";
 import { resolveStarterSiteIdentity } from "../utils/site-identity";
+import SiteFooter from "../components/SiteFooter.astro";
+import "../styles/global.css";
 
 interface Props {
 	title: string;
@@ -37,6 +39,12 @@ const fullTitle = titleIncludesSiteName ? title : `${title} — ${siteTitle}`;
 const pageDescription = description ?? siteTagline;
 const menu = menuResult.data;
 
+// The home's brand mark: the site's title in lower case, its words joined by a crema slash ("brew/guide").
+const markWords = siteTitle.toLowerCase().split(/\s+/).filter(Boolean);
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isCurrent = (url: string) =>
+	url === path || (url !== "/" && path.startsWith(`${url}/`));
+
 const pageCtx = createPublicPageContext({
 	Astro,
 	kind: content ? "content" : "custom",
@@ -52,49 +60,58 @@ const pageCtx = createPublicPageContext({
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scheme-dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{fullTitle}</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=DM+Sans:opsz,wght@9..40,400..700&family=DM+Mono:wght@400;500&display=swap" />
 		<EmDashHead page={pageCtx} />
 	</head>
-	<body>
+	<body class="flex min-h-screen flex-col">
 		<EmDashBodyStart page={pageCtx} />
 
-		<header>
-			<nav>
-				<a href="/">
+		<header class="site-header relative z-5 border-b border-neutral-600 dark:border-neutral-750">
+			<div class="wrap flex min-h-20 items-center justify-between gap-8 max-md:min-h-0 max-md:flex-wrap max-md:gap-x-5 max-md:gap-y-2.5 max-md:py-3.5">
+				<a class="font-wonk text-mark font-semibold whitespace-nowrap italic" href="/" aria-label={siteTitle}>
 					{
 						siteLogo ? (
-							<img
-								src={siteLogo.url}
-								alt={siteLogo.alt || siteTitle}
-								style="height:48px;width:auto;margin:-8px 0;display:block;"
-							/>
+							<img class="-my-2 block h-12 w-auto" src={siteLogo.url} alt={siteLogo.alt || siteTitle} />
 						) : (
-							siteTitle
+							markWords.map((word, i) => (
+								<>
+									{i > 0 && <b class="font-semibold text-primary-500">/</b>}
+									{word}
+								</>
+							))
 						)
 					}
 				</a>
-				{
-					menu?.items.map((item) => (
-						<a
-							href={item.url}
-							target={item.target}
-							rel={item.target === "_blank" ? "noopener noreferrer" : undefined}
-						>
-							{item.label}
-						</a>
-					))
-				}
-				<LiveSearch placeholder="Search..." collections={["posts", "pages"]} />
-			</nav>
+				<nav class="site-nav flex items-center gap-7 text-base text-neutral-400 max-md:w-full max-md:gap-5 max-md:overflow-x-auto max-md:pb-1 max-md:scrollbar-none" aria-label="Main">
+					{
+						menu?.items.map((item) => (
+							<a
+								class="whitespace-nowrap transition-colors hover:text-neutral-50 current:text-neutral-50 current:underline current:decoration-primary-500 current:underline-offset-6"
+								href={item.url}
+								target={item.target}
+								rel={item.target === "_blank" ? "noopener noreferrer" : undefined}
+								aria-current={isCurrent(item.url) ? "page" : undefined}
+							>
+								{item.label}
+							</a>
+						))
+					}
+					<LiveSearch placeholder="Search…" collections={["posts", "pages"]} />
+				</nav>
+			</div>
 		</header>
 
-		<main>
+		<main class="flex-1 pb-section">
 			<slot />
 		</main>
+
+		<SiteFooter />
 
 		<EmDashBodyEnd page={pageCtx} />
 	</body>

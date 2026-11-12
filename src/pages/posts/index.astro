@@ -29,42 +29,47 @@ const postsWithTags = posts.map((post) => ({
 ---
 
 <Base title="All Posts">
-	<h1>Posts</h1>
+	<section class="page-head wrap">
+		<p class="eyebrow">Notes</p>
+		<h1 class="page-title">Posts</h1>
+	</section>
 
-	{
-		postsWithTags.length === 0 ? (
-			<p>No posts yet.</p>
-		) : (
-			<ul>
-				{postsWithTags.map(({ post, tags }) => (
-					<li>
-						<a href={`/posts/${post.id}`}>
-							{post.data.featured_image && (
-								<div {...post.edit.featured_image}><Image image={post.data.featured_image} /></div>
-							)}
-							<h2 {...post.edit.title}>{post.data.title}</h2>
-						</a>
-						{post.data.excerpt && <p {...post.edit.excerpt}>{post.data.excerpt}</p>}
-						{tags.length > 0 && (
-							<div>
-								{tags.map((t) => (
-									<a href={`/tag/${t.slug}`}>{t.label}</a>
-								))}
-							</div>
-						)}
-					</li>
-				))}
-			</ul>
-		)
-	}
-	<nav aria-label="Pagination">
-		{cursor && <a href="/posts">First page</a>}
+	<div class="wrap">
 		{
-			nextCursor && (
-				<a href={`/posts?cursor=${encodeURIComponent(nextCursor)}`}>
-					Next page
-				</a>
+			postsWithTags.length === 0 ? (
+				<p class="text-xl text-neutral-400">No posts yet.</p>
+			) : (
+				<ul class="cards">
+					{postsWithTags.map(({ post, tags }) => (
+						<li>
+							<a class="group block" href={`/posts/${post.id}`}>
+								{post.data.featured_image && (
+									<div class="card-photo" {...post.edit.featured_image}><Image class="photo-lean" image={post.data.featured_image} /></div>
+								)}
+								<h2 class="card-title" {...post.edit.title}>{post.data.title}</h2>
+							</a>
+							{post.data.excerpt && <p class="card-excerpt" {...post.edit.excerpt}>{post.data.excerpt}</p>}
+							{tags.length > 0 && (
+								<div class="chips mt-3.5">
+									{tags.map((t) => (
+										<a class="chip" href={`/tag/${t.slug}`}>{t.label}</a>
+									))}
+								</div>
+							)}
+						</li>
+					))}
+				</ul>
 			)
 		}
-	</nav>
+		<nav class="mt-16 flex gap-3 font-mono text-sm empty:hidden" aria-label="Pagination">
+			{cursor && <a class="pager-link" href="/posts">First page</a>}
+			{
+				nextCursor && (
+					<a class="pager-link" href={`/posts?cursor=${encodeURIComponent(nextCursor)}`}>
+						Next page
+					</a>
+				)
+			}
+		</nav>
+	</div>
 </Base>

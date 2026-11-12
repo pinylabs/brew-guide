@@ -11,9 +11,13 @@ Better coffee at home, one method at a time: a dark-led EmDash docs site with a 
 
 It needs Node 22 or later and pnpm. On Cloudflare it uses a D1 database (`DB`) and an R2 bucket (`MEDIA`), as EmDash's Cloudflare templates do.
 
+## Change its look
+
+It is styled with Tailwind CSS 4. Every colour, font, type size, radius, width and spacing step is a token in `src/styles/theme.css`, so the site's look changes there: the colours are the `primary` (crema), `secondary` (foam), `tertiary` (green) and `neutral` (espresso) scales, and `dark:` gives the deeper roast under a dark colour scheme. `src/styles/global.css` holds the rest: the base, the few repeated pieces (cards, chips, the button), EmDash's prose and components, and the motion, which stops under reduced motion.
+
 ## Photos and video
 
-They are linked from their sources and never copied into this repository:
+They are linked from their sources and never copied into this repository. The same photos are the featured pictures of the guides and notes, and every page's footer credits them:
 
 - Home: Pour-over card; the guide page: the picture: [Nadia Valko](https://unsplash.com/@nadiavalko) on Unsplash, [Unsplash License](https://unsplash.com/license), linked from [its page](https://unsplash.com/photos/pouring-hot-water-over-coffee-grounds-in-a-pour-over-brewer-F0XGFD9Z1Uk), not copied.
 - The guide page: inline: [Karl Fredrickson](https://unsplash.com/@kfred) on Unsplash, [Unsplash License](https://unsplash.com/license), linked from [its page](https://unsplash.com/photos/person-filling-glass-container-TYIzeCiZ_60), not copied.
@@ -27,4 +31,4 @@ They are linked from their sources and never copied into this repository:
 
 ## Licence
 
-MIT. Built on EmDash's `starter-cloudflare` template, MIT, Copyright 2026 Cloudflare Inc.; its notice is kept in [LICENSE](LICENSE). Made by the Pinies in [Piny](https://piny.studio/home/).
+MIT. Built on EmDash's `starter-cloudflare` template, MIT, Copyright 2026 Cloudflare Inc.; its notice is kept in [LICENSE](LICENSE). Made by the Pinies in [Piny](https://piny.studio/home/). The Piny Studio mark in `public/brand/` is Piny's and isn't covered by the template's MIT licence.

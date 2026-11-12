@@ -38,35 +38,40 @@ if (Astro.cache?.enabled) {
 	title={`Posts tagged "${term.label}"`}
 	description={`Posts tagged ${term.label}`}
 >
-	<h1>Tag: {term.label}</h1>
+	<section class="page-head wrap">
+		<p class="eyebrow">Tag</p>
+		<h1 class="page-title">#<em class="text-primary-500">{term.label}</em></h1>
+	</section>
 
-	{
-		posts.length === 0 ? (
-			<p>No posts with this tag yet.</p>
-		) : (
-			<ul>
-				{posts.map((post) => (
-					<li>
-						<a href={`/posts/${post.id}`}>
-							{post.data.featured_image && (
-								<div {...post.edit.featured_image}><Image image={post.data.featured_image} /></div>
-							)}
-							<h2 {...post.edit.title}>{post.data.title}</h2>
-						</a>
-						{post.data.excerpt && <p {...post.edit.excerpt}>{post.data.excerpt}</p>}
-					</li>
-				))}
-			</ul>
-		)
-	}
-	<nav aria-label="Pagination">
-		{cursor && <a href={`/tag/${term.slug}`}>First page</a>}
+	<div class="wrap">
 		{
-			nextCursor && (
-				<a href={`/tag/${term.slug}?cursor=${encodeURIComponent(nextCursor)}`}>
-					Next page
-				</a>
+			posts.length === 0 ? (
+				<p class="text-xl text-neutral-400">No posts with this tag yet.</p>
+			) : (
+				<ul class="cards">
+					{posts.map((post) => (
+						<li>
+							<a class="group block" href={`/posts/${post.id}`}>
+								{post.data.featured_image && (
+									<div class="card-photo" {...post.edit.featured_image}><Image class="photo-lean" image={post.data.featured_image} /></div>
+								)}
+								<h2 class="card-title" {...post.edit.title}>{post.data.title}</h2>
+							</a>
+							{post.data.excerpt && <p class="card-excerpt" {...post.edit.excerpt}>{post.data.excerpt}</p>}
+						</li>
+					))}
+				</ul>
 			)
 		}
-	</nav>
+		<nav class="mt-16 flex gap-3 font-mono text-sm empty:hidden" aria-label="Pagination">
+			{cursor && <a class="pager-link" href={`/tag/${term.slug}`}>First page</a>}
+			{
+				nextCursor && (
+					<a class="pager-link" href={`/tag/${term.slug}?cursor=${encodeURIComponent(nextCursor)}`}>
+						Next page
+					</a>
+				)
+			}
+		</nav>
+	</div>
 </Base>

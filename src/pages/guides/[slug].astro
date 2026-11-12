@@ -8,6 +8,7 @@ import {
 import { Image, PortableText, WidgetArea } from "emdash/ui";
 import Base from "../../layouts/Base.astro";
 import { resolveStarterSiteIdentity } from "../../utils/site-identity";
+import { guideFacts } from "../../utils/guide-facts";
 
 const slug = decodeSlug(Astro.params.slug);
 
@@ -34,6 +35,7 @@ const seo = getSeoMeta(post, {
 // Taxonomy terms are already hydrated onto the entry by getEmDashEntry.
 const tags = post.data.terms?.tag ?? [];
 const categories = post.data.terms?.category ?? [];
+const facts = guideFacts(post.data);
 ---
 
 <Base
@@ -44,53 +46,66 @@ const categories = post.data.terms?.category ?? [];
 	image={seo.ogImage}
 	content={{ collection: "guides", id: post.data.id, slug }}
 >
-	<article>
-		{
-			post.data.featured_image && (
-				<div {...post.edit.featured_image}>
-					<Image image={post.data.featured_image} />
-				</div>
-			)
-		}
+	<div class="wrap entry-layout">
+		<article class="max-w-entry">
+			{
+				post.data.featured_image && (
+					<div class="mb-10 overflow-hidden rounded-photo bg-neutral-800 dark:bg-neutral-950 max-md:mb-7" {...post.edit.featured_image}>
+						<Image class="block aspect-video h-auto w-full object-cover" image={post.data.featured_image} />
+					</div>
+				)
+			}
 
-		<h1 {...post.edit.title}>{post.data.title}</h1>
+			{
+				categories.length > 0 && (
+					<div class="chips mb-4.5">
+						{categories.map((c) => (
+							<a class="chip chip-category" href={`/category/${c.slug}`}>{c.label}</a>
+						))}
+					</div>
+				)
+			}
 
-		{
-			post.data.publishedAt && (
-				<time datetime={post.data.publishedAt.toISOString()}>
-					{post.data.publishedAt.toLocaleDateString("en-US", {
-						year: "numeric",
-						month: "long",
-						day: "numeric",
-					})}
-				</time>
-			)
-		}
+			<h1 class="entry-title" {...post.edit.title}>{post.data.title}</h1>
 
-		{
-			categories.length > 0 && (
-				<div>
-					{categories.map((c) => (
-						<a href={`/category/${c.slug}`}>{c.label}</a>
-					))}
-				</div>
-			)
-		}
+			{
+				post.data.publishedAt && (
+					<time class="mt-4.5 block font-mono text-xs text-neutral-400" datetime={post.data.publishedAt.toISOString()}>
+						{post.data.publishedAt.toLocaleDateString("en-US", {
+							year: "numeric",
+							month: "long",
+							day: "numeric",
+						})}
+					</time>
+				)
+			}
 
-		<PortableText value={post.data.content} />
+			{
+				facts.length > 0 && (
+					<dl class="facts facts-lg" style={`--n: ${facts.length}`}>
+						{facts.map(([label]) => <dt>{label}</dt>)}
+						{facts.map(([, value]) => <dd>{value}</dd>)}
+					</dl>
+				)
+			}
 
-		{
-			tags.length > 0 && (
-				<div>
-					{tags.map((t) => (
-						<a href={`/tag/${t.slug}`}>{t.label}</a>
-					))}
-				</div>
-			)
-		}
-	</article>
+			<div class="prose">
+				<PortableText value={post.data.content} />
+			</div>
 
-	<aside>
-		<WidgetArea name="sidebar" />
-	</aside>
+			{
+				tags.length > 0 && (
+					<div class="chips mt-12 border-t border-neutral-600 pt-7 dark:border-neutral-750">
+						{tags.map((t) => (
+							<a class="chip" href={`/tag/${t.slug}`}>{t.label}</a>
+						))}
+					</div>
+				)
+			}
+		</article>
+
+		<aside class="sidebar">
+			<WidgetArea name="sidebar" />
+		</aside>
+	</div>
 </Base>

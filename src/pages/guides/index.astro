@@ -2,6 +2,7 @@
 import { getEmDashCollection, getTermsForEntries } from "emdash";
 import { Image } from "emdash/ui";
 import Base from "../../layouts/Base.astro";
+import { guideFacts } from "../../utils/guide-facts";
 
 const cursor = Astro.url.searchParams.get("cursor") || undefined;
 const {
@@ -29,42 +30,59 @@ const guidesWithTags = guides.map((post) => ({
 ---
 
 <Base title="All Guides">
-	<h1>Guides</h1>
+	<section class="page-head wrap">
+		<p class="eyebrow">Methods</p>
+		<h1 class="page-title">Guides</h1>
+	</section>
 
-	{
-		guidesWithTags.length === 0 ? (
-			<p>No guides yet.</p>
-		) : (
-			<ul>
-				{guidesWithTags.map(({ post, tags }) => (
-					<li>
-						<a href={`/guides/${post.id}`}>
-							{post.data.featured_image && (
-								<div {...post.edit.featured_image}><Image image={post.data.featured_image} /></div>
-							)}
-							<h2 {...post.edit.title}>{post.data.title}</h2>
-						</a>
-						{post.data.excerpt && <p {...post.edit.excerpt}>{post.data.excerpt}</p>}
-						{tags.length > 0 && (
-							<div>
-								{tags.map((t) => (
-									<a href={`/tag/${t.slug}`}>{t.label}</a>
-								))}
-							</div>
-						)}
-					</li>
-				))}
-			</ul>
-		)
-	}
-	<nav aria-label="Pagination">
-		{cursor && <a href="/guides">First page</a>}
+	<div class="wrap">
 		{
-			nextCursor && (
-				<a href={`/guides?cursor=${encodeURIComponent(nextCursor)}`}>
-					Next page
-				</a>
+			guidesWithTags.length === 0 ? (
+				<p class="text-xl text-neutral-400">No guides yet.</p>
+			) : (
+				<ul class="cards">
+					{guidesWithTags.map(({ post, tags }, i) => {
+						const facts = guideFacts(post.data);
+						return (
+							<li>
+								<a class="group block" href={`/guides/${post.id}`}>
+									{post.data.featured_image && (
+										<div class="card-photo aspect-3/4" {...post.edit.featured_image}>
+											<Image class="photo-lean" image={post.data.featured_image} />
+											<span class="photo-tag">{String(i + 1).padStart(2, "0")} {post.data.title.toLowerCase()}</span>
+										</div>
+									)}
+									<h2 class="card-title" {...post.edit.title}>{post.data.title}</h2>
+									{facts.length > 0 && (
+										<dl class="facts" style={`--n: ${facts.length}`}>
+											{facts.map(([label]) => <dt>{label}</dt>)}
+											{facts.map(([, value]) => <dd>{value}</dd>)}
+										</dl>
+									)}
+								</a>
+								{post.data.excerpt && <p class="card-excerpt" {...post.edit.excerpt}>{post.data.excerpt}</p>}
+								{tags.length > 0 && (
+									<div class="chips mt-3.5">
+										{tags.map((t) => (
+											<a class="chip" href={`/tag/${t.slug}`}>{t.label}</a>
+										))}
+									</div>
+								)}
+							</li>
+						);
+					})}
+				</ul>
 			)
 		}
-	</nav>
+		<nav class="mt-16 flex gap-3 font-mono text-sm empty:hidden" aria-label="Pagination">
+			{cursor && <a class="pager-link" href="/guides">First page</a>}
+			{
+				nextCursor && (
+					<a class="pager-link" href={`/guides?cursor=${encodeURIComponent(nextCursor)}`}>
+						Next page
+					</a>
+				)
+			}
+		</nav>
+	</div>
 </Base>

@@ -1,0 +1,692 @@
+/* Brew Guide's one stylesheet, for the home and every page that uses the Base layout. The tokens are in theme.css;
+   the markup carries Tailwind's utilities. What stays here is what utilities cannot say cleanly: the base the
+   preflight changes, a few repeated groups, Portable Text's prose, EmDash's own markup, and the motion. */
+/* Astro's responsive-image defaults live in the `astro.images` layer. Naming it first keeps it the weakest layer
+   whichever stylesheet the page loads first, so the utilities on a photo (size-full, h-auto) win over its
+   `height: auto`. */
+@layer astro.images;
+@import "tailwindcss";
+@import "./theme.css";
+
+/* Dark mode follows the reader's colour scheme; the template has no switcher. */
+@custom-variant dark (@media (prefers-color-scheme: dark));
+/* The page a navigation link points at. */
+@custom-variant current (&[aria-current="page"]);
+
+/* Grid templates the design uses, named so the markup carries no arbitrary values. --n is a guide's number of
+   facts, set on the element. */
+@utility grid-cols-entry {
+  grid-template-columns: minmax(0, 1fr) var(--container-sidebar);
+}
+@utility grid-cols-cards {
+  grid-template-columns: repeat(auto-fill, minmax(var(--container-card-min), 1fr));
+}
+@utility grid-cols-footer {
+  grid-template-columns: 1.2fr 1fr;
+}
+@utility grid-cols-sheet {
+  grid-template-columns: var(--container-sheet-label) 1fr;
+}
+@utility grid-cols-facts {
+  grid-template-columns: repeat(var(--n, 3), auto);
+}
+@utility grid-cols-facts-even {
+  grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr));
+}
+@utility scrollbar-none {
+  scrollbar-width: none;
+}
+/* The home's card surface: the sheet, a guide's facts, the sidebar's widgets and a table. */
+@utility panel {
+  @apply rounded-card border border-neutral-600 bg-neutral-800 dark:border-neutral-750 dark:bg-neutral-950;
+}
+
+@layer base {
+  /* The preflight sets a line height of 1.5 on the root; the design reads the font's own. */
+  html {
+    line-height: normal;
+    @apply bg-neutral-900 dark:bg-neutral;
+  }
+  body {
+    -webkit-font-smoothing: antialiased;
+    @apply overflow-x-clip bg-neutral-900 font-sans text-neutral-50 dark:bg-neutral;
+  }
+  /* Headings are Fraunces at its regular weight; each one sets its size and its display axes. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif font-normal;
+  }
+  :focus-visible {
+    @apply rounded-focus outline-2 outline-offset-3 outline-primary-500;
+  }
+
+  /* EmDash's own components read these. */
+  :root {
+    --color-border: var(--color-neutral-600);
+    --color-surface: var(--color-neutral-800);
+    --color-bg-subtle: color-mix(in srgb, var(--color-neutral-50) 2.5%, transparent);
+    --color-muted: var(--color-neutral-400);
+    --emdash-caption-color: var(--color-neutral-400);
+    --emdash-search-bg: var(--color-neutral-800);
+    --emdash-search-text: var(--color-neutral-50);
+    --emdash-search-muted: var(--color-neutral-400);
+    --emdash-search-border: var(--color-neutral-600);
+    --emdash-search-border-focus: var(--color-primary-500);
+    --emdash-search-hover: var(--color-neutral-700);
+    --emdash-search-highlight: var(--color-primary-500);
+    @variant dark {
+      --color-border: var(--color-neutral-750);
+      --color-surface: var(--color-neutral-950);
+      --emdash-search-bg: var(--color-neutral-950);
+      --emdash-search-border: var(--color-neutral-750);
+      --emdash-search-hover: var(--color-neutral-850);
+    }
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-page px-gutter max-md:px-gutter-sm;
+  }
+  .eyebrow {
+    @apply mb-3.5 font-mono text-xs tracking-label text-neutral-400 uppercase;
+  }
+
+  /* A list page's head. */
+  .page-head {
+    @apply pt-18 pb-10 max-md:pt-12 max-md:pb-7;
+  }
+  .page-title {
+    @apply font-display text-section max-md:text-section-sm;
+  }
+
+  /* Cards: the home's method cards, in a grid on the list pages. */
+  .cards {
+    @apply grid grid-cols-cards gap-x-5.5 gap-y-12 max-md:grid-cols-1 max-md:gap-10;
+  }
+  .card-photo {
+    @apply relative aspect-3/2 overflow-hidden rounded-photo bg-neutral-800 dark:bg-neutral-950;
+  }
+  .card-title {
+    @apply mt-3.5 font-display-straight text-title transition-colors group-hover:text-secondary-200 max-md:text-title-sm;
+  }
+  .card-excerpt {
+    @apply mt-2.5 text-md leading-copy text-neutral-400;
+  }
+  .photo-tag {
+    @apply absolute bottom-0 left-0 bg-primary-500 px-2.5 py-1.5 font-mono text-xs text-primary-950 uppercase;
+  }
+  /* A card's photo leans in when its card is hovered. */
+  .photo-lean {
+    filter: saturate(0.9);
+    transition:
+      transform 1.2s var(--ease-glide),
+      filter 0.8s;
+    @apply block size-full object-cover;
+  }
+  .group:hover .photo-lean {
+    transform: scale(1.04);
+    filter: saturate(1.15);
+  }
+
+  /* A guide's facts: ratio, grind and time. */
+  .facts {
+    @apply mt-1.5 grid grid-cols-facts justify-start gap-x-5.5 gap-y-0.5 font-mono text-xs text-neutral-400;
+  }
+  .facts > dt {
+    @apply lowercase;
+  }
+  .facts > dd {
+    @apply text-base text-neutral-50;
+  }
+  .facts-lg {
+    @apply panel mt-7 justify-stretch gap-x-10 gap-y-1 px-6 py-4.5 max-md:grid-cols-facts-even max-md:gap-x-4 max-md:px-4 max-md:py-3.5;
+  }
+  .facts-lg > dd {
+    @apply font-display-straight text-fact max-md:text-lg;
+  }
+
+  /* Chips: tags in the home's ticker style, categories in its crema tag. */
+  .chips {
+    @apply flex flex-wrap gap-2 font-mono text-xs;
+  }
+  .chip {
+    @apply rounded-control border border-neutral-600 px-2.5 py-1.5 text-neutral-400 transition-colors hover:border-primary-500 hover:text-neutral-50 dark:border-neutral-750;
+  }
+  .chip::before {
+    content: "#";
+    @apply mr-0.5 text-primary-500;
+  }
+  .chip-category {
+    @apply rounded-none border-primary-500 bg-primary-500 text-primary-950 uppercase hover:border-secondary-200 hover:bg-secondary-200 hover:text-primary-950;
+  }
+  .chip-category::before {
+    content: none;
+  }
+
+  .pager-link {
+    @apply rounded-control border border-neutral-600 px-4 py-2.5 transition-colors hover:border-primary-500 dark:border-neutral-750;
+  }
+
+  .btn {
+    transition:
+      transform 0.25s var(--ease-glide),
+      background-color 0.25s;
+    @apply inline-block rounded-control bg-primary-500 px-5 py-3 text-base font-semibold text-primary-950 hover:bg-secondary-200;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  /* An entry: a guide, a note or a page, with the sidebar beside it when there is one. */
+  .entry-layout {
+    @apply grid grid-cols-entry items-start gap-18 pt-14 max-lg:grid-cols-1 max-lg:gap-14 max-md:pt-7;
+  }
+  .entry-title {
+    @apply mt-1 font-display text-entry max-md:text-entry-sm;
+  }
+
+  /* The home's recipe sheet. */
+  .sheet-row {
+    @apply grid grid-cols-sheet border-b border-dashed border-neutral-600 py-2.5 last:border-0 dark:border-neutral-750;
+  }
+  .sheet-row > :first-child {
+    @apply text-neutral-400;
+  }
+
+  .credits a {
+    @apply underline decoration-neutral-600 dark:decoration-neutral-750;
+  }
+
+  /* The sidebar's widgets, which EmDash renders: each on the home's card. */
+  .sidebar {
+    @apply sticky top-6 grid gap-5.5 max-lg:static;
+  }
+  .sidebar .widget-area {
+    @apply grid gap-5.5;
+  }
+  .sidebar .widget {
+    @apply panel px-5.5 py-5;
+  }
+  .sidebar .widget__title {
+    @apply mb-3 font-mono text-xs font-medium tracking-label text-neutral-400 uppercase;
+  }
+  .sidebar .widget li {
+    @apply flex flex-wrap items-baseline justify-between gap-3 border-b border-dashed border-neutral-600 py-2.5 text-base dark:border-neutral-750;
+  }
+  .sidebar .widget li:last-child {
+    @apply border-b-0 pb-0;
+  }
+  .sidebar .widget li a {
+    @apply hover:text-primary-500;
+  }
+  .sidebar :is(.widget-categories__count, .widget-archives__count, .widget-recent-posts__date) {
+    @apply font-mono text-2xs text-neutral-400;
+  }
+  .sidebar .widget-recent-posts li {
+    @apply flex-col gap-0.5;
+  }
+  .sidebar .widget-tags__cloud {
+    @apply flex! flex-wrap gap-2;
+  }
+  .sidebar .widget-tags__cloud li {
+    @apply border-0 p-0;
+  }
+  .sidebar .widget-tags__link {
+    @apply rounded-control border border-neutral-600 px-2.25 py-1.25 font-mono text-xs dark:border-neutral-750;
+  }
+  .widget-search {
+    @apply flex gap-2;
+  }
+  .widget-search__input {
+    @apply min-w-0 flex-1 rounded-control border border-neutral-600 bg-transparent px-3 py-2.25 font-mono text-xs text-neutral-50 placeholder:text-neutral-400 focus:border-primary-500 focus:outline-none dark:border-neutral-750;
+  }
+  .widget-search__button {
+    @apply cursor-pointer rounded-control border-0 bg-primary-500 px-3 py-2.25 font-mono text-xs text-primary-950 hover:bg-secondary-200;
+  }
+
+  /* Portable Text prose. The preflight's resets are undone where prose relies on the browser: list markers, and
+     pictures that sit in the text's line. */
+  .prose {
+    @apply mt-10 text-prose text-neutral-400 max-md:text-prose-sm;
+  }
+  .prose > * + * {
+    margin-top: 1.1em;
+  }
+  .prose :is(h2, h3, h4) {
+    @apply font-display text-neutral-50;
+  }
+  .prose h2 {
+    margin-top: 1.6em;
+    @apply text-title max-md:text-title-xs;
+  }
+  .prose h3 {
+    margin-top: 1.4em;
+    @apply text-subtitle;
+  }
+  .prose h4 {
+    margin-top: 1.2em;
+    @apply text-heading;
+  }
+  .prose :is(h2, h3, h4) + * {
+    margin-top: 0.6em;
+  }
+  .prose :is(strong, b) {
+    @apply font-semibold text-neutral-50;
+  }
+  .prose em {
+    @apply italic;
+  }
+  .prose a {
+    @apply text-neutral-50 underline decoration-primary-500 underline-offset-3 hover:text-primary-500;
+  }
+  .prose :is(ul, ol) {
+    padding-left: 1.4em;
+  }
+  .prose ul {
+    list-style-type: disc;
+  }
+  .prose :is(ul, ol) ul {
+    list-style-type: circle;
+  }
+  .prose :is(ul, ol) :is(ul, ol) ul {
+    list-style-type: square;
+  }
+  .prose ol {
+    list-style-type: decimal;
+  }
+  .prose li + li,
+  .prose li > :is(ul, ol) {
+    margin-top: 0.35em;
+  }
+  .prose ul li::marker {
+    @apply text-primary-500;
+  }
+  .prose ol li::marker {
+    font-size: 0.85em;
+    @apply font-mono text-primary-500;
+  }
+  .prose blockquote {
+    @apply border-l-2 border-primary-500 py-1 pl-6 font-wonk text-pullquote text-neutral-50 italic max-md:text-pullquote-sm;
+  }
+  .prose blockquote p + p {
+    margin-top: 0.6em;
+  }
+  .prose code {
+    padding: 0.1em 0.35em;
+    font-size: 0.85em;
+    @apply rounded-code border border-neutral-600 bg-neutral-800 font-mono text-neutral-50 dark:border-neutral-750 dark:bg-neutral-950;
+  }
+  .prose pre code {
+    @apply border-0 bg-transparent p-0;
+  }
+  .prose hr {
+    margin: 2.4em 0;
+    @apply border-0 border-t border-neutral-600 dark:border-neutral-750;
+  }
+  .prose :is(img, svg, video) {
+    display: revert;
+    vertical-align: revert;
+  }
+  .prose figure img {
+    @apply rounded-photo;
+  }
+  /* Tables, as the home's recipe sheet: mono, quiet heads, dashed rows. Their cells are below, with EmDash's. */
+  .prose .emdash-table-wrapper {
+    @apply panel font-mono text-sm;
+  }
+
+  /* The home's sections whose backgrounds are layered gradients over a photo or the video. Neutral (the base) is
+     the espresso night in either scheme; --ground is the page's own ground. */
+  .hero-shade::after,
+  .beans-shade::after {
+    content: "";
+    --night: var(--color-neutral);
+    --ground: var(--color-neutral-900);
+    @apply absolute inset-0 -z-1;
+    @variant dark {
+      --ground: var(--color-neutral);
+    }
+  }
+  .hero-shade::after {
+    background:
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--night) 94%, transparent) 0%,
+        color-mix(in srgb, var(--night) 70%, transparent) 38%,
+        color-mix(in srgb, var(--night) 0%, transparent) 70%
+      ),
+      linear-gradient(0deg, var(--ground) 0%, color-mix(in srgb, var(--night) 0%, transparent) 30%);
+    @variant max-md {
+      background: linear-gradient(
+        0deg,
+        var(--ground) 10%,
+        color-mix(in srgb, var(--night) 55%, transparent) 55%,
+        color-mix(in srgb, var(--night) 20%, transparent)
+      );
+    }
+  }
+  .beans-shade::after {
+    background: radial-gradient(circle at center, color-mix(in srgb, var(--night) 20%, transparent), var(--ground) 75%);
+  }
+
+  /* The home's row of methods, scrolled sideways card by card, its edges in line with the page. */
+  .rail-track {
+    scroll-padding-inline: max(var(--spacing-gutter), calc((100vw - var(--container-rail)) / 2));
+    padding: 0 max(var(--spacing-gutter), calc((100vw - var(--container-rail)) / 2)) 18px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary-500) transparent;
+    @apply flex snap-x snap-mandatory gap-5.5 overflow-x-auto overscroll-x-contain focus-visible:outline-offset-6;
+    @variant max-md {
+      padding: 0 var(--spacing-gutter-sm) 8px;
+      scroll-padding-inline: var(--spacing-gutter-sm);
+    }
+  }
+}
+
+/* EmDash's own components ship scoped styles outside every cascade layer, and those beat any layer. The overrides
+   for the markup they style therefore stay outside the layers too, one class more specific than EmDash's. */
+
+/* The header's live search, drawn as the home's mono search chip. */
+.site-header .site-nav .emdash-live-search {
+  @apply block;
+}
+.site-header .site-nav input.emdash-live-search-input {
+  @apply w-search rounded-control border border-neutral-600 bg-transparent px-3 py-1.75 font-mono text-xs text-neutral-50 placeholder:text-neutral-400 focus:border-primary-500 dark:border-neutral-750 max-md:w-search-sm;
+}
+.site-header .site-nav .emdash-live-search-results {
+  width: min(var(--container-popover), 90vw);
+  @apply right-0 left-auto rounded-card shadow-popover;
+}
+.site-header .site-nav .emdash-live-search-result {
+  @apply text-sm;
+}
+
+/* A card's picture covers its frame whatever the photo's shape. EmDash's image ships `height: auto` outside the
+   layers, which would otherwise leave a landscape photo short in a portrait frame. */
+.card-photo > img.photo-lean {
+  @apply size-full object-cover;
+}
+
+/* A table's cells in prose. */
+.prose .emdash-table-wrapper .emdash-table :is(th, td) {
+  @apply border-0 border-b border-dashed border-neutral-600 px-4.5 py-3 leading-normal dark:border-neutral-750;
+}
+.prose .emdash-table-wrapper .emdash-table th {
+  @apply bg-transparent font-medium text-neutral-400 lowercase;
+}
+.prose .emdash-table-wrapper .emdash-table td {
+  @apply text-neutral-50;
+}
+.prose .emdash-table-wrapper .emdash-table tbody tr:last-child > * {
+  @apply border-b-0;
+}
+
+/* Motion. Only transform and opacity move, so it stays on the compositor. Under prefers-reduced-motion
+   everything is still, and a browser without scroll timelines simply shows the page. */
+
+/* Page changes: the browser's cross-document view transition. A picture that names itself the same on both pages
+   grows into its place; the rest fades and slides. */
+@view-transition {
+  navigation: auto;
+}
+@keyframes vt-out {
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+@keyframes vt-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+/* The hero's signature: the headline sets word by word, each word settling from a light weight to its own; the
+   dial fills to 1 : 16. */
+@keyframes set {
+  0% {
+    opacity: 0;
+    transform: translateY(0.18em);
+    font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144, "wght" 200;
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+    font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144, "wght" 400;
+  }
+}
+@keyframes fill {
+  to {
+    stroke-dashoffset: 18;
+  }
+}
+@keyframes drift {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1.14) translateY(4%);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+/* The Pinies' entrances, the public site's four, played once when their row comes into view. */
+@keyframes walk {
+  0% {
+    transform: translateX(-120px);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(-96px) translateY(-4px);
+  }
+  35% {
+    transform: translateX(-70px) translateY(0);
+  }
+  50% {
+    transform: translateX(-44px) translateY(-4px);
+  }
+  65% {
+    transform: translateX(-16px) translateY(0);
+  }
+  80% {
+    transform: translateX(0) translateY(-16px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+@keyframes skid {
+  0% {
+    transform: translateX(520px) rotate(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  65% {
+    transform: translateX(-8px) rotate(-12deg);
+  }
+  82% {
+    transform: translateX(3px) rotate(3deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+}
+@keyframes drop {
+  0% {
+    transform: translateY(-120px);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-12px);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  95% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes peek {
+  0% {
+    transform: translateY(56px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes wave {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-12deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-6deg);
+  }
+}
+
+@layer components {
+  ::view-transition-old(root) {
+    animation: 260ms var(--ease-in) both vt-out;
+  }
+  ::view-transition-new(root) {
+    animation: 420ms var(--ease-out) 80ms both vt-in;
+  }
+  ::view-transition-group(*) {
+    animation-duration: 520ms;
+    animation-timing-function: var(--ease-glide);
+  }
+
+  .headline-word {
+    animation: set 0.9s var(--ease-settle) both;
+    animation-delay: calc(var(--i) * 140ms + 250ms);
+    @apply inline-block opacity-0;
+  }
+  .dial-ring {
+    stroke-dasharray: 302;
+    stroke-dashoffset: 302;
+    animation: fill 2.2s var(--ease-in-out) 1s both;
+  }
+
+  /* Scroll-driven: the beans' photo drifts slower than the page; a block fades in as it enters. */
+  @supports (animation-timeline: scroll()) {
+    .motion-drift {
+      animation: drift linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+    }
+  }
+  @supports (animation-timeline: view()) {
+    .motion-fade {
+      animation: fade linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 90%;
+    }
+  }
+
+  .pinies[data-entrance] .face {
+    animation-duration: 0.9s;
+    animation-fill-mode: both;
+    animation-delay: calc(var(--i) * 0.14s);
+    animation-timing-function: var(--ease-bounce-in);
+  }
+  .pinies[data-entrance="walk"] .face {
+    animation-name: walk;
+  }
+  .pinies[data-entrance="skid"] .face {
+    animation-name: skid;
+  }
+  .pinies[data-entrance="drop"] .face {
+    animation-name: drop;
+    animation-timing-function: ease-in;
+  }
+  .pinies[data-entrance="peek"] .face {
+    animation-name: peek;
+  }
+  .pinies[data-entrance="peek"] .face:last-child {
+    animation-name: peek, wave;
+    animation-duration: 0.9s, 0.6s;
+    animation-delay: calc(4 * 0.14s), 1.5s;
+    animation-fill-mode: both, none;
+  }
+  /* A row that plays an entrance waits unseen until it plays. */
+  .pinies[data-entrance-row]:not([data-entrance]):not([data-shown]) .face {
+    opacity: 0;
+  }
+
+  /* Still: reduced motion, and the stills a capture renders with `still` on <html>. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+    .pinies .face {
+      opacity: 1 !important;
+    }
+    .headline-word {
+      opacity: 1;
+    }
+    .dial-ring {
+      stroke-dashoffset: 18;
+    }
+    .group:hover .photo-lean,
+    .btn:hover {
+      transform: none;
+    }
+  }
+  html.still *,
+  html.still *::before,
+  html.still *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  html.still .pinies .face {
+    opacity: 1 !important;
+  }
+  html.still .headline-word {
+    opacity: 1;
+  }
+  html.still .dial-ring {
+    stroke-dashoffset: 18;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}

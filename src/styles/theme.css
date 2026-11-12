@@ -1,0 +1,201 @@
+/* Brew Guide's design tokens: the one file to edit to change the site's look. Tailwind turns each token into its
+   utilities (bg-primary-500, text-display-hero, rounded-card, max-w-page and so on), and the global stylesheet
+   reads the same variables. `static` keeps every token on :root, so EmDash's components and the inline SVGs can
+   read them too.
+
+   Dark-led by design: the site is the same espresso night in either colour scheme. A light preference gets a
+   lighter roast of the same browns, and `dark:` utilities (prefers-color-scheme: dark) give the deeper one. */
+@theme static {
+  /* Only these colours exist: Tailwind's default palette is cleared. */
+  --color-*: initial;
+
+  /* Primary: crema, the accent. 500 is crema itself; 950 is the dark ink on a crema chip. */
+  --color-primary-50: #fdf2e7;
+  --color-primary-100: #fae4cf;
+  --color-primary-200: #f6c99f;
+  --color-primary-300: #f1b47e;
+  --color-primary-400: #ed9f5d;
+  --color-primary-500: #e88a3c;
+  --color-primary-600: #ba6e30;
+  --color-primary-700: #8c5324;
+  --color-primary-800: #5f3718;
+  --color-primary-900: #311c0c;
+  --color-primary-950: #1a0e06;
+  --color-primary: #e88a3c;
+
+  /* Secondary: foam, the milk tint a crema control turns to on hover. 200 is foam itself. */
+  --color-secondary-50: #fdf6ec;
+  --color-secondary-100: #faecda;
+  --color-secondary-200: #f6d9b5;
+  --color-secondary-300: #dabf9e;
+  --color-secondary-400: #bda587;
+  --color-secondary-500: #a18b71;
+  --color-secondary-600: #85715a;
+  --color-secondary-700: #695743;
+  --color-secondary-800: #4c3d2c;
+  --color-secondary-900: #302315;
+  --color-secondary-950: #22160a;
+  --color-secondary: #f6d9b5;
+
+  /* Tertiary: a fresh green for a good result, such as a recipe marked published. 300 is the green itself. */
+  --color-tertiary-50: #ecf7ef;
+  --color-tertiary-100: #daf0df;
+  --color-tertiary-200: #b4e0be;
+  --color-tertiary-300: #8fd19e;
+  --color-tertiary-400: #7bb789;
+  --color-tertiary-500: #679c74;
+  --color-tertiary-600: #53825f;
+  --color-tertiary-700: #40684a;
+  --color-tertiary-800: #2c4d35;
+  --color-tertiary-900: #183320;
+  --color-tertiary-950: #0e2615;
+  --color-tertiary: #8fd19e;
+
+  /* Neutral: the espresso browns, from the cream ink (50) and the soft roast (400) down to the night (the base).
+     The roasts pair up by role, the lighter for a light preference and the deeper under `dark:`:
+       ground  900 / base      card  800 / 950      raised  700 / 850      line  600 / 750 */
+  --color-neutral-50: #f3e8da;
+  --color-neutral-100: #ebded0;
+  --color-neutral-200: #dacbbc;
+  --color-neutral-300: #cab8a7;
+  --color-neutral-400: #b9a593;
+  --color-neutral-500: #7a685a;
+  --color-neutral-600: #3a2b21;
+  --color-neutral-700: #2e2018;
+  --color-neutral-750: #2c211a;
+  --color-neutral-800: #241912;
+  --color-neutral-850: #221812;
+  --color-neutral-900: #1b130e;
+  --color-neutral-950: #18110d;
+  --color-neutral: #0d0907;
+
+  /* Fonts. Fraunces, the serif, comes in the design's settings of its soft, wonky and optical-size axes. */
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-display--font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
+  --font-display-straight: "Fraunces", Georgia, serif;
+  --font-display-straight--font-variation-settings: "SOFT" 100, "opsz" 144;
+  --font-wonk: "Fraunces", Georgia, serif;
+  --font-wonk--font-variation-settings: "SOFT" 100, "WONK" 1;
+
+  /* Type scale. Display steps carry their line height and tracking; the -sm steps are their phone sizes. A step
+     with no line height takes its parent's. Tailwind's default sizes are cleared. */
+  --text-*: initial;
+  --text-hero: 132px;
+  --text-hero--line-height: 0.88;
+  --text-hero--letter-spacing: -0.04em;
+  --text-hero-sm: 68px;
+  --text-hero-sm--line-height: 0.88;
+  --text-hero-sm--letter-spacing: -0.04em;
+  --text-section: 84px;
+  --text-section--line-height: 0.9;
+  --text-section--letter-spacing: -0.04em;
+  --text-section-sm: 52px;
+  --text-section-sm--line-height: 0.9;
+  --text-section-sm--letter-spacing: -0.04em;
+  --text-entry: 72px;
+  --text-entry--line-height: 0.92;
+  --text-entry--letter-spacing: -0.04em;
+  --text-entry-sm: 46px;
+  --text-entry-sm--line-height: 0.92;
+  --text-entry-sm--letter-spacing: -0.04em;
+  --text-feature: 64px;
+  --text-feature--line-height: 0.95;
+  --text-feature--letter-spacing: -0.035em;
+  --text-feature-sm: 44px;
+  --text-feature-sm--line-height: 0.95;
+  --text-feature-sm--letter-spacing: -0.035em;
+  --text-quote: 52px;
+  --text-quote--line-height: 1.1;
+  --text-quote-sm: 32px;
+  --text-quote-sm--line-height: 1.1;
+  --text-stat: 44px;
+  --text-stat--line-height: 1;
+  --text-title: 40px;
+  --text-title--line-height: 1.05;
+  --text-title--letter-spacing: -0.03em;
+  --text-title-sm: 34px;
+  --text-title-sm--line-height: 1.05;
+  --text-title-sm--letter-spacing: -0.03em;
+  --text-title-xs: 32px;
+  --text-title-xs--line-height: 1.05;
+  --text-title-xs--letter-spacing: -0.03em;
+  --text-card: 40px;
+  --text-card--letter-spacing: -0.03em;
+  --text-mark: 30px;
+  --text-mark--letter-spacing: -0.02em;
+  --text-subtitle: 28px;
+  --text-subtitle--line-height: 1.05;
+  --text-subtitle--letter-spacing: -0.03em;
+  --text-pullquote: 28px;
+  --text-pullquote--line-height: 1.25;
+  --text-pullquote-sm: 23px;
+  --text-pullquote-sm--line-height: 1.25;
+  --text-heading: 22px;
+  --text-heading--line-height: 1.05;
+  --text-heading--letter-spacing: -0.03em;
+  --text-fact: 20px;
+  --text-lede: 19px;
+  --text-lede--line-height: 1.55;
+  --text-prose: 18px;
+  --text-prose--line-height: 1.7;
+  --text-prose-sm: 17px;
+  --text-prose-sm--line-height: 1.7;
+  --text-xl: 18px;
+  --text-lg: 17px;
+  --text-md: 16px;
+  --text-base: 15px;
+  --text-sm: 14px;
+  --text-xs: 13px;
+  --text-2xs: 12px;
+
+  --leading-copy: 1.55;
+  --leading-reading: 1.6;
+  --leading-credits: 1.8;
+  --leading-natural: normal;
+
+  --tracking-label: 0.04em;
+
+  /* Spacing: Tailwind's 4px step for everything else, and the page's own rhythm. */
+  --spacing-gutter: 40px;
+  --spacing-gutter-sm: 18px;
+  --spacing-section: 96px;
+  --spacing-section-sm: 56px;
+  --spacing-notfound: 56vh;
+
+  /* Widths. */
+  --container-page: 1280px;
+  --container-rail: 1200px;
+  --container-quote: 820px;
+  --container-entry: 760px;
+  --container-headline: 700px;
+  --container-lede: 560px;
+  --container-blurb: 440px;
+  --container-method: 360px;
+  --container-method-sm: 78vw;
+  --container-sidebar: 300px;
+  --container-card-min: 300px;
+  --container-popover: 360px;
+  --container-search: 168px;
+  --container-search-sm: 140px;
+  --container-sheet-label: 130px;
+
+  --radius-photo: 6px;
+  --radius-control: 8px;
+  --radius-card: 10px;
+  --radius-code: 4px;
+  --radius-focus: 2px;
+
+  --shadow-popover: 0 18px 40px rgba(0, 0, 0, 0.45);
+
+  --blur-glass: 6px;
+
+  /* Motion. --ease-in and --ease-out are Tailwind's own curves, which the page change uses. */
+  --ease-glide: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-settle: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-bounce-in: cubic-bezier(0.3, 0.7, 0.3, 1);
+  --default-transition-duration: 200ms;
+  --default-transition-timing-function: ease;
+}
